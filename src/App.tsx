@@ -3,6 +3,7 @@ import {
   IonApp,
   IonIcon,
   IonLabel,
+  IonRoute,
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
@@ -33,6 +34,7 @@ import './theme/variables.css';
 import Profiles from './pages/Profiles';
 import Competences from './pages/Competences';
 import { people , analytics} from 'ionicons/icons';
+import CompetencesDetails from './pages/CompetencesDetails';
 
 setupIonicReact();
 
@@ -50,6 +52,7 @@ const App: React.FC = () => (
           <Route exact path="/">
             <Redirect to="/Competences" />
           </Route>
+          <Route path="/CompetencesDetails/:id" component={CompetencesDetails} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           
@@ -63,6 +66,9 @@ const App: React.FC = () => (
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
+
+
+
     </IonReactRouter>
   </IonApp>
 );
