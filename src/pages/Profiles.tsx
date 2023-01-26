@@ -10,7 +10,7 @@ import ProfilList from '../components/ProfilList';
 const Profiles: React.FC = () => {
 
   const [profils, setProfils] = useState<ProfilType[]>([])
-  const [newProfil, setNewProfil] = useState<ProfilType>(new ProfilType("","",""))
+  const [newProfil, setNewProfil] = useState<ProfilType>(new ProfilType("","","", [""]))
 
   useEffect(() => {
       callProfilsServices.findAll().then(res => setProfils(res))

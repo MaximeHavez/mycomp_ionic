@@ -18,7 +18,10 @@
       "id": 2,
       "firstname": "John",
       "lastname": "Doe",
-      "img": ""
+      "img": "",
+      "competences": [
+        "805eb530-5d8c-9863-13e2-ed4cdb76282e"
+      ]
     },
     {
       "id": "bfeee29f-2fb4-48f2-2524-b7866062e4dc",

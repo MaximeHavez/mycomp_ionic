@@ -24,6 +24,8 @@ export class ProfilsServices {
         return data;
     }
 
+
+
 }
 
 export const callProfilsServices = Object.freeze(new ProfilsServices())
