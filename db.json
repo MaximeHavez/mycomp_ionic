@@ -19,6 +19,12 @@
       "firstname": "John",
       "lastname": "Doe",
       "img": ""
+    },
+    {
+      "id": "bfeee29f-2fb4-48f2-2524-b7866062e4dc",
+      "firstname": "Mathilde",
+      "lastname": "Bettembourg",
+      "img": ""
     }
   ]
 }

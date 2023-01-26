@@ -10,76 +10,73 @@ import './Competences.css';
 
 const Tab3: React.FC = () => {
 
-  const [comp, setComp] = useState<CompetencesType[]>([])
+const [comp, setComp] = useState<CompetencesType[]>([])
 
-  const [newComp, setNewComp] = useState<CompetencesType>(new CompetencesType("","https://ionicframework.com/docs/img/demos/card-media.png",""))
+const [newComp, setNewComp] = useState<CompetencesType>(new CompetencesType("","https://ionicframework.com/docs/img/demos/card-media.png",""))
 
-  useEffect(() => {
-    callCompetencesServices.findAll().then(res => setComp(res))
-  }, [])
-  
-  const handleChangeNom = (event : any) => {
-    setNewComp({...newComp, nom:event.target.value})
-  }
+useEffect(() => {
+  callCompetencesServices.findAll().then(res => setComp(res))
+}, [])
 
-  const handleChangeDesc = (event : any) => {
-    setNewComp({...newComp, description:event.target.value})
-  }
+const handleChangeNom = (event : any) => {
+  setNewComp({...newComp, nom:event.target.value})
+}
 
-  const handleClickAdd = () => {
-    callCompetencesServices.addComp(newComp)
-  }
+const handleChangeDesc = (event : any) => {
+  setNewComp({...newComp, description:event.target.value})
+}
 
-
-  return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Compétences
+const handleClickAdd = () => {
+  callCompetencesServices.addComp(newComp)
+}
 
 
-
-          </IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-
-      {comp.map((item, index)=> 
-        
-          <CompetencesCard key={index} comp={item} />
-          
-        
-      )}
-        
+return (
+  <IonPage>
 
 
-      <IonButton id="open-modal" expand="block">
-          Ajouter
-        </IonButton>
-        <IonModal
-          trigger="open-modal"
-          initialBreakpoint={0.50}
-          breakpoints={[0, 0.30, 0.5, 0.75]}
-          handleBehavior="cycle"
-        >
-          <IonContent className="ion-padding">
-            <div className="ion-margin-top">
-            <IonItem>
-              <IonLabel>Nom de la compétence</IonLabel>
-              <IonInput onIonChange={handleChangeNom} placeholder="Nom"></IonInput>
-            </IonItem>
-            <IonItem>
-              <IonLabel>Description</IonLabel>
-              <IonTextarea  onIonChange={handleChangeDesc} placeholder="Ecrivez ici"></IonTextarea>
-            </IonItem>
-            <IonButton onClick={handleClickAdd}>Créer</IonButton>
-            </div>
-          </IonContent>
-        </IonModal>
+    <IonHeader>
+      <IonToolbar>
+        <IonTitle>Compétences</IonTitle>
+      </IonToolbar>
+    </IonHeader>
 
-      </IonContent>
-    </IonPage>
-  );
+
+    <IonContent fullscreen>
+
+
+    <IonButton id="open-modal" expand="block">
+        Ajouter
+      </IonButton>
+      <IonModal
+        trigger="open-modal"
+        initialBreakpoint={0.50}
+        breakpoints={[0, 0.30, 0.5, 0.75]}
+        handleBehavior="cycle"
+      >
+        <IonContent className="ion-padding">
+          <div className="ion-margin-top">
+          <IonItem>
+            <IonLabel>Nom de la compétence</IonLabel>
+            <IonInput onIonChange={handleChangeNom} placeholder="Nom"></IonInput>
+          </IonItem>
+          <IonItem>
+            <IonLabel>Description</IonLabel>
+            <IonTextarea  onIonChange={handleChangeDesc} placeholder="Ecrivez ici"></IonTextarea>
+          </IonItem>
+          <IonButton onClick={handleClickAdd}>Créer</IonButton>
+          </div>
+        </IonContent>
+      </IonModal>
+
+
+    {comp.map((item, index)=>     
+        <CompetencesCard key={index} comp={item} />
+    )}
+
+    </IonContent>
+  </IonPage>
+);
 };
 
 export default Tab3;
