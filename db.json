@@ -49,25 +49,17 @@
       "lastname": "Doe",
       "img": "",
       "niveaux": {
-        "competences": [{
-          "competence": {
-            "id": "805eb530-5d8c-9863-13e2-ed4cdb76282e",
-            "nom": "JavaScript",
-            "img": "https://ionicframework.com/docs/img/demos/card-media.png",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-          },
-          "niveau": "Debutant"
-        },
+        "competences": [
           {
             "competence": {
-              "id": 1,
-              "nom": "Java",
+              "id": "805eb530-5d8c-9863-13e2-ed4cdb76282e",
+              "nom": "JavaScript",
               "img": "https://ionicframework.com/docs/img/demos/card-media.png",
               "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
             },
             "niveau": "Debutant"
-          }],
-        
+          }
+        ]
       }
     }
   ]

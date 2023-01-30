@@ -28,6 +28,18 @@ export class ProfilsServices {
         return  fetch(`http://localhost:3000/profils/${id}`, { method: 'DELETE' })
     }
 
+    updateProfil = async (id : string, profil : ProfilType) => {
+
+            fetch(`http://localhost:3000/profils/${id}`,
+                {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(profil)
+                })
+                .then(response => response.json())
+
+    }
+
 
 
 }

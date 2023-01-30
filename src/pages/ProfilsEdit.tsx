@@ -1,4 +1,5 @@
 import {
+    IonButton,
     IonContent,
     IonHeader,
     IonInput,
@@ -16,6 +17,7 @@ import {callProfilsServices} from "../services/ProfilsServices";
 import {ProfilType} from "../models/ProfilType";
 import {NiveauxType} from "../models/NiveauxType";
 import './ProfilsEdit.css'
+import competences from "./Competences";
 
 const ProfilsEdit = () => {
 
@@ -25,7 +27,24 @@ const ProfilsEdit = () => {
 
     useEffect(()=>{
         callProfilsServices.findById(id).then((res)=> setCurrentUser(res) )
-    })
+    }, [])
+
+    const handleChangeNom = (event : any) => {
+        setCurrentUser({...currentUser, lastname: event.target.value})
+    }
+
+    const handleChangePrenom = (event : any) => {
+        setCurrentUser({...currentUser, firstname: event.target.value})
+    }
+
+    const handleChangeCompLvl = (event : any, index : number) => {
+        console.log(index)
+        setCurrentUser({...currentUser, niveaux:{...currentUser.niveaux, competences:[...currentUser.niveaux.competences, {...currentUser.niveaux.competences[index], niveau:event.target.value}]}})
+    }
+
+    const handleCLickEdit = () => {
+        callProfilsServices.updateProfil(id, currentUser)
+    }
   return(
       <>
           <IonPage>
@@ -38,7 +57,7 @@ const ProfilsEdit = () => {
           <IonContent fullscreen>
               <IonItem className="inputEdit" fill="outline">
                   <IonLabel position="floating">Nom de famille</IonLabel>
-                  <IonInput placeholder={currentUser.lastname}></IonInput>
+                  <IonInput onIonChange={handleChangeNom} placeholder={currentUser.lastname}></IonInput>
               </IonItem>
               <IonItem className="inputEdit" fill="outline">
                   <IonLabel position="floating">Prénom</IonLabel>
@@ -50,7 +69,7 @@ const ProfilsEdit = () => {
                   <IonList className="inputEdit" key={index}>
                       <IonItem>
                           <IonLabel>{i.competence.nom}</IonLabel>
-                          <IonSelect interface="alert" placeholder={i.niveau}>
+                          <IonSelect onIonChange={(e) => handleChangeCompLvl(e, index)} interface="alert" placeholder={i.niveau}>
                               <IonSelectOption value="Debutant">Débutant</IonSelectOption>
                               <IonSelectOption value="Confirmé">Confirmé</IonSelectOption>
                               <IonSelectOption value="Expert">Expert</IonSelectOption>
@@ -59,6 +78,7 @@ const ProfilsEdit = () => {
                   </IonList>
               )}
 
+              <IonButton onClick={handleCLickEdit} className="inputEdit" color="warning">Modifier</IonButton>
           </IonContent>
           </IonPage>
       </>
