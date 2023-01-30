@@ -16,12 +16,16 @@ export class CompetencesServices {
     }
 
     addComp = (comp : CompetenceType) => {
-        return fetch('http://localhost:3000/Competences', {
+        return fetch('http://localhost:3000/competences', {
             method:'POST',
             body: JSON.stringify(comp),
             headers:{'Content-type':'application/json'}
         })
             .then(response => response.json())
+    }
+
+    deleteById = async (id : string) => {
+        return  fetch(`http://localhost:3000/competences/${id}`, { method: 'DELETE' })
     }
     
 }

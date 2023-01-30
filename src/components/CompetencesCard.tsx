@@ -23,7 +23,7 @@ const CompetencesCard = (props : props) => {
             <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
             <IonCardHeader className='cardHeader'>
             <IonCardTitle>{props.comp.nom}</IonCardTitle>
-            <Link to={`/CompetencesDetails/${props.comp.id}`}><IonButton color="medium">Détail</IonButton></Link>
+            <IonButton routerLink={`/CompetencesDetails/${props.comp.id}`} color="medium">Détail</IonButton>
             </IonCardHeader>
 
         </IonCard>

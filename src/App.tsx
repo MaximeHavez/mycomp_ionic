@@ -36,6 +36,7 @@ import Competences from './pages/Competences';
 import { people , analytics} from 'ionicons/icons';
 import CompetencesDetails from './pages/CompetencesDetails';
 import ProfilDetail from './pages/ProfilDetail';
+import ProfilsEdit from "./pages/ProfilsEdit";
 
 setupIonicReact();
 
@@ -55,6 +56,7 @@ const App: React.FC = () => (
           </Route>
           <Route path="/CompetencesDetails/:id" component={CompetencesDetails} />
           <Route path="/ProfilDetail/:id" component={ProfilDetail} />
+          <Route path="/Profiles/:id" component={ProfilsEdit} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           

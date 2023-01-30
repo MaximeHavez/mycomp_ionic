@@ -1,4 +1,24 @@
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonModal, IonPage, IonTextarea, IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
+import {
+    IonButton,
+    IonCard,
+    IonCardContent,
+    IonCardHeader,
+    IonCardSubtitle,
+    IonCardTitle,
+    IonContent,
+    IonHeader, IonIcon,
+    IonInput,
+    IonItem, IonItemOption,
+    IonItemOptions, IonItemSliding,
+    IonLabel,
+    IonList,
+    IonModal,
+    IonPage,
+    IonTextarea,
+    IonThumbnail,
+    IonTitle,
+    IonToolbar
+} from '@ionic/react';
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import ExploreContainer from '../components/ExploreContainer';
@@ -8,6 +28,7 @@ import './Profiles.css';
 import ProfilList from '../components/ProfilList';
 import {NiveauxType} from "../models/NiveauxType";
 import {CompetencesType} from "../models/CompetencesType";
+import {archive, heart, trash} from "ionicons/icons";
 
 const Profiles: React.FC = () => {
 
@@ -71,12 +92,15 @@ const Profiles: React.FC = () => {
 
         <IonList>
 
-        {profils.map((i, index) => 
-          <ProfilList key={index} profil={i}/>
-        )}
-          
 
-          
+                {profils.map((i, index) =>
+
+
+                  <ProfilList key={index} profil={i}/>
+
+
+                )}
+
         </IonList>
       </IonCardContent>
     </IonCard>

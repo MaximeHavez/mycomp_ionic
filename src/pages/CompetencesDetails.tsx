@@ -1,9 +1,23 @@
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonPage, IonRouterOutlet, IonTitle, IonToolbar } from '@ionic/react'
+import {
+    IonButton,
+    IonCard,
+    IonCardContent,
+    IonCardHeader,
+    IonCardSubtitle,
+    IonCardTitle,
+    IonContent,
+    IonHeader,
+    IonPage,
+    IonRouterOutlet,
+    IonTitle,
+    IonToolbar
+} from '@ionic/react'
 import React, { useEffect, useState } from 'react'
 import { Route, useParams } from 'react-router-dom'
 import { CompetencesType } from '../models/CompetencesType'
 import { callCompetencesServices } from '../services/CompetencesServices'
 import {CompetenceType} from "../models/CompetenceType";
+import './CompetencesDetail.css';
 
 const CompetencesDetails = () => {
 
@@ -15,6 +29,9 @@ const CompetencesDetails = () => {
             callCompetencesServices.findById(id).then(res => setCurrentComp(res))
     }, [])
     
+    const deleteComp = () : any => {
+        callCompetencesServices.deleteById(id)
+    }
 
   return (
 
@@ -39,7 +56,7 @@ const CompetencesDetails = () => {
         </IonCardContent>
     </IonCard>
 
-
+    <IonButton className="btnSupp" onClick={deleteComp} color="danger">Supprimer</IonButton>
       </IonContent>
         </IonPage>
       <div>CompetencesDetails</div>
