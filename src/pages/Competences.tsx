@@ -7,19 +7,21 @@ import { CompetencesType } from '../models/CompetencesType';
 import { callCompetencesServices } from '../services/CompetencesServices';
 import { add} from 'ionicons/icons';
 import './Competences.css';
+import {NiveauxType} from "../models/NiveauxType";
+import {CompetenceType} from "../models/CompetenceType";
 
-const Tab3: React.FC = () => {
+const Competences = () => {
 
-const [comp, setComp] = useState<CompetencesType[]>([])
+const [comp, setComp] = useState<CompetenceType[]>([])
 
-const [newComp, setNewComp] = useState<CompetencesType>(new CompetencesType("","https://ionicframework.com/docs/img/demos/card-media.png",""))
+const [newComp, setNewComp] = useState<CompetenceType>(new CompetenceType("","",""))
 
 useEffect(() => {
   callCompetencesServices.findAll().then(res => setComp(res))
 }, [])
 
 const handleChangeNom = (event : any) => {
-  setNewComp({...newComp, nom:event.target.value})
+  setNewComp({...newComp, nom: event.target.value})
 }
 
 const handleChangeDesc = (event : any) => {
@@ -28,8 +30,7 @@ const handleChangeDesc = (event : any) => {
 
 const handleClickAdd = () => {
   callCompetencesServices.addComp(newComp)
-}
-
+ }
 
 return (
   <IonPage>
@@ -72,6 +73,7 @@ return (
 
     {comp.map((item, index)=>     
         <CompetencesCard key={index} comp={item} />
+
     )}
 
     </IonContent>
@@ -79,4 +81,4 @@ return (
 );
 };
 
-export default Tab3;
+export default Competences;

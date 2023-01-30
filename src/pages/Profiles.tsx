@@ -6,11 +6,13 @@ import { ProfilType } from '../models/ProfilType';
 import { callProfilsServices } from '../services/ProfilsServices';
 import './Profiles.css';
 import ProfilList from '../components/ProfilList';
+import {NiveauxType} from "../models/NiveauxType";
+import {CompetencesType} from "../models/CompetencesType";
 
 const Profiles: React.FC = () => {
 
   const [profils, setProfils] = useState<ProfilType[]>([])
-  const [newProfil, setNewProfil] = useState<ProfilType>(new ProfilType("","","", [""]))
+  const [newProfil, setNewProfil] = useState<ProfilType>(new ProfilType("","","", new NiveauxType([],"")))
 
   useEffect(() => {
       callProfilsServices.findAll().then(res => setProfils(res))

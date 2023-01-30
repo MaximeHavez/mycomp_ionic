@@ -6,13 +6,16 @@ import CompetencesDetails from '../pages/CompetencesDetails'
 import ButtonMyComp from './ButtonMyComp'
 
 import './CompetencesCard.css'
+import {CompetenceType} from "../models/CompetenceType";
 
 export type props ={
-    comp:CompetencesType
+    comp:CompetenceType
     
 }
 
 const CompetencesCard = (props : props) => {
+
+
 
   return (
     <div>
@@ -23,8 +26,6 @@ const CompetencesCard = (props : props) => {
             <Link to={`/CompetencesDetails/${props.comp.id}`}><IonButton color="medium">Détail</IonButton></Link>
             </IonCardHeader>
 
-
-            
         </IonCard>
     </div>
   )

@@ -3,12 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { Route, useParams } from 'react-router-dom'
 import { CompetencesType } from '../models/CompetencesType'
 import { callCompetencesServices } from '../services/CompetencesServices'
+import {CompetenceType} from "../models/CompetenceType";
 
 const CompetencesDetails = () => {
 
     let {id} = useParams() as {id:string};
 
-    const [currentComp, setCurrentComp] = useState<CompetencesType>()
+    const [currentComp, setCurrentComp] = useState<CompetenceType>()
 
     useEffect(() => {
             callCompetencesServices.findById(id).then(res => setCurrentComp(res))

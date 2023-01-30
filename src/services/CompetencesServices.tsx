@@ -1,4 +1,5 @@
 import { CompetencesType } from "../models/CompetencesType";
+import {CompetenceType} from "../models/CompetenceType";
 
 export class CompetencesServices {
 
@@ -14,7 +15,7 @@ export class CompetencesServices {
         return data;
     }
 
-    addComp = (comp : CompetencesType) => {
+    addComp = (comp : CompetenceType) => {
         return fetch('http://localhost:3000/Competences', {
             method:'POST',
             body: JSON.stringify(comp),

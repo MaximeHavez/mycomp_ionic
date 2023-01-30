@@ -24,6 +24,10 @@ export class ProfilsServices {
         return data;
     }
 
+    deleteById = async (id : string) => {
+        return  fetch(`http://localhost:3000/profils/${id}`, { method: 'DELETE' })
+    }
+
 
 
 }
